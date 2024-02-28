@@ -10,8 +10,17 @@ body{
     display: flex;
     align-items: center;
     gap: 50px;
+    justify-content: space-between;
 }
-
-
+#posts{
+    width: 400px;
+}
+.options{
+    display: flex;
+    gap: 25px;
+}
+i{
+    cursor: pointer;
+}
 
 
