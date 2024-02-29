@@ -9,6 +9,7 @@ form.addEventListener("submit", (e)=>{
     formValidation()
 
 })
+
 let formValidation =()=>{
     if(input.value === ""){
         msg.innerHTML =`Post cannot be blank`
@@ -35,4 +36,8 @@ let createPosts=()=>{
     </span>
   </div>`
     input.value ="";
+}
+
+let deletePost =()=>{
+
 }
