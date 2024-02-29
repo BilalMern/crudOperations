@@ -32,12 +32,12 @@ let createPosts=()=>{
     <p>${data.text}</p>
     <span class="options">
       <i class="bi bi-pencil-square"></i>
-      <i class="bi bi-trash3"></i>
+      <i onclick="deletePost(this)" class="bi bi-trash3"></i>
     </span>
   </div>`
     input.value ="";
 }
 
-let deletePost =()=>{
-
+let deletePost =(e)=>{
+e.remove()
 }
