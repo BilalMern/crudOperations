@@ -31,7 +31,7 @@ let createPosts=()=>{
     posts.innerHTML += `<div>
     <p>${data.text}</p>
     <span class="options">
-      <i class="bi bi-pencil-square"></i>
+      <i onclick ="editPost(this)" class="bi bi-pencil-square"></i>
       <i onclick="deletePost(this)" class="bi bi-trash3"></i>
     </span>
   </div>`
@@ -39,5 +39,11 @@ let createPosts=()=>{
 }
 
 let deletePost =(e)=>{
-e.remove()
+e.parentElement.parentElement.remove()
+}
+
+let editPost =(e)=>{
+    input.value =e.parentElement.previousElementSibling.innerHTML;
+    e.parentElement.parentElement.remove()
+
 }
