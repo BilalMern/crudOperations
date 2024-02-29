@@ -50,3 +50,27 @@ gap: 4px;
 .options i{
 cursor: pointer;
 }
+
+
+.modal-title{
+    background-color: #e2eede;
+    border-radius: 5px;
+    padding:5px 10px;
+    
+}
+.same{
+    background-color: #e2eede;
+    border-radius: 5px;
+    padding:5px 10px;
+    width: 22%;
+    display: flex;
+    justify-content: center;
+}
+#close{
+    background-color: red;
+    border: none;
+}
+#add{
+    background-color: green;
+    border: none;
+}
