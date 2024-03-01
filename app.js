@@ -2,8 +2,9 @@ let form = document.getElementById("form");
 let textInput = document.getElementById("textInput");
 let textDate = document.getElementById("textDate");
 let textarea = document.getElementById("textarea");
-let dateMsg = document.getElementById("dateMsg")
-let msg = document.getElementById("msg")
+let dateMsg = document.getElementById("dateMsg");
+let msg = document.getElementById("msg");
+let tasks = document.getElementById("tasks");
 form.addEventListener("submit", (e)=>{
 e.preventDefault()
 formValidation()
@@ -29,7 +30,18 @@ let acceptData=()=>{ //! We use this function to fetch all the form data and sto
 data["text"]=textInput.value;
 data["date"]=textDate.value;
 data["description"]=textarea.value;
-console.log(data)
+createTasks()
 }
 
 //! Uploading the stored data on screen //
+let createTasks =()=>{
+tasks.innerHTML += `<div>
+<span class="fw-bold">${data.text}</span>
+<span class="small text-secondary">${data.date}</span>
+<p>${data.description}</p>
+<span class="options">
+  <i class="bi bi-pencil-square"></i>
+  <i class="bi bi-trash-fill"></i>
+</span>
+</div>`
+}
