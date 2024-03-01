@@ -18,5 +18,16 @@ let formValidation =()=>{
     else{
         msg.innerHTML=""
         dateMsg.innerHTML=""
+        acceptData()
     }
+}
+
+//! Accepting and storing data //
+let data ={}
+
+let acceptData=()=>{ //! We use this function to fetch all the form data and store it in above blank object //
+data["text"]=textInput.value;
+data["date"]=textDate.value;
+data["description"]=textarea.value;
+console.log(data)
 }
