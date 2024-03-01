@@ -31,3 +31,5 @@ data["date"]=textDate.value;
 data["description"]=textarea.value;
 console.log(data)
 }
+
+//! Uploading the stored data on screen //
