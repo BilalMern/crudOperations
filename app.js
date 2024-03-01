@@ -1,7 +1,9 @@
 let form = document.getElementById("form");
 let textInput = document.getElementById("textInput");
 let textDate = document.getElementById("textDate");
-let textarea = document.getElementById("textarea")
+let textarea = document.getElementById("textarea");
+let dateMsg = document.getElementById("dateMsg")
+let msg = document.getElementById("msg")
 form.addEventListener("submit", (e)=>{
 e.preventDefault()
 formValidation()
@@ -9,11 +11,12 @@ formValidation()
 
 let formValidation =()=>{
     if(textInput.value === ""){
-        console.log("failure")
+        msg.innerHTML = `Input cannot be blank`
     }else if(textDate.value ===""){
-        console.log("failure")
+        dateMsg.innerHTML =`Plz select the date`
     }
     else{
-        console.log("success")
+        msg.innerHTML=""
+        dateMsg.innerHTML=""
     }
 }
