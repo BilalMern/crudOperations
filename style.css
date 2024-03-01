@@ -12,6 +12,10 @@ body{
     background-color: #fff;
     overflow-y: scroll;
 }
+
+/***! Hiding scroll bar **/
+.app::-webkit-scrollbar { width: 0 !important }
+
 .bi-plus-lg{
 font-size: 20px;
 background-color: #abcea1;
@@ -52,19 +56,20 @@ cursor: pointer;
 }
 
 
-.modal-title{
+/* .modal-title{
     background-color: #e2eede;
     border-radius: 5px;
     padding:5px 10px;
     
-}
+} */
 .same{
-    background-color: #e2eede;
+    /* background-color: #e2eede;
     border-radius: 5px;
     padding:5px 10px;
     width: 22%;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
+    font-weight: bolder;
 }
 #close{
     background-color: red;
@@ -73,6 +78,7 @@ cursor: pointer;
 #add{
     background-color: green;
     border: none;
+    
 }
 #textarea,#textDate,#textInput{
     border: 3px solid #a7ce9d;
@@ -83,12 +89,12 @@ cursor: pointer;
 }
 #msg{
     color: red;
-    font-weight: bolder;
-    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
 
 }
 #dateMsg{
     color: red;
-    font-weight: bolder;
-    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
 }

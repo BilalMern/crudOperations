@@ -5,6 +5,7 @@ let textarea = document.getElementById("textarea");
 let dateMsg = document.getElementById("dateMsg");
 let msg = document.getElementById("msg");
 let tasks = document.getElementById("tasks");
+let add = document.getElementById("add")
 form.addEventListener("submit", (e)=>{
 e.preventDefault()
 formValidation()
@@ -20,6 +21,12 @@ let formValidation =()=>{
         msg.innerHTML=""
         dateMsg.innerHTML=""
         acceptData()
+        //! vanishing form after success and pressing add button //
+        add.setAttribute("data-bs-dismiss","modal")
+        //! Simulating button click //
+        add.click()
+        //! on clicking add button without giving date form gone withour giving error so to resolve this issue we have to use IIFE function //
+        
     }
 }
 
@@ -44,4 +51,13 @@ tasks.innerHTML += `<div>
   <i class="bi bi-trash-fill"></i>
 </span>
 </div>`
+resetForm()
+}
+
+
+//! Resetting form //
+let resetForm =()=>{
+    textInput.value ="";
+    textDate.value="";
+    textarea.value="";
 }
