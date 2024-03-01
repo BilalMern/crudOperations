@@ -74,3 +74,10 @@ cursor: pointer;
     background-color: green;
     border: none;
 }
+#textarea,#textDate,#textInput{
+    border: 3px solid #a7ce9d;
+}
+#cross{
+    background-color: red;
+    
+}
