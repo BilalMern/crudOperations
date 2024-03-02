@@ -41,8 +41,8 @@ let acceptData = () => {
     text: textInput.value,
     date: textDate.value,
     description: textarea.value,
-  });
-
+  }); 
+   localStorage.setItem("data",JSON.stringify(data))
   createTasks();
 };
 
