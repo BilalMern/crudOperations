@@ -23,23 +23,26 @@ let formValidation = () => {
     //! vanishing form after success and pressing add button //
     add.setAttribute("data-bs-dismiss", "modal");
     //! Simulating button click because form is not went on first click it will went on 2nd click so we have to simulate the click//
-    add.click()
+    add.click()(
       //! on clicking add button without giving date form gone withour giving error so to resolve this issue we have to use IIFE function //
-      (() => {
+      () => {
         add.setAttribute("data-bs-dismiss", "");
-      })
-    ();
+      }
+    )();
   }
 };
 
 //! Accepting and storing data //
-let data = {};
+let data = [];
 
 let acceptData = () => {
   //! We use this function to fetch all the form data and store it in above blank object //
-  data["text"] = textInput.value;
-  data["date"] = textDate.value;
-  data["description"] = textarea.value;
+  data.push({
+    text: textInput.value,
+    date: textDate.value,
+    description: textarea.value,
+  });
+
   createTasks();
 };
 
@@ -64,14 +67,14 @@ let resetForm = () => {
   textarea.value = "";
 };
 
-let deleteTask =(e)=>{
-e.parentElement.parentElement.remove()
-}
+let deleteTask = (e) => {
+  e.parentElement.parentElement.remove();
+};
 
-let editTask=(e)=>{
-let selectedTask = e.parentElement.parentElement;
-textInput.value = selectedTask.children[0].innerHTML
-  textDate.value = selectedTask.children[1].innerHTML
-  textarea.value = selectedTask.children[2].innerHTML
-selectedTask.remove()
-}
+let editTask = (e) => {
+  let selectedTask = e.parentElement.parentElement;
+  textInput.value = selectedTask.children[0].innerHTML;
+  textDate.value = selectedTask.children[1].innerHTML;
+  textarea.value = selectedTask.children[2].innerHTML;
+  selectedTask.remove();
+};
