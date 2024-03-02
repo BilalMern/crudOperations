@@ -23,12 +23,13 @@ let formValidation = () => {
     //! vanishing form after success and pressing add button //
     add.setAttribute("data-bs-dismiss", "modal");
     //! Simulating button click because form is not went on first click it will went on 2nd click so we have to simulate the click//
-    add.click()(
-      //! on clicking add button without giving date form gone withour giving error so to resolve this issue we have to use IIFE function //
-      () => {
-        add.setAttribute("data-bs-dismiss", "");
-      }
-    )();
+    add.click();
+    //! on clicking add button without giving date form gone without giving error so to resolve this issue we have to use IIFE function //
+    // (
+    //   () => {
+    //     add.setAttribute("data-bs-dismiss", "");
+    //   }
+    // )();
   }
 };
 
@@ -41,22 +42,28 @@ let acceptData = () => {
     text: textInput.value,
     date: textDate.value,
     description: textarea.value,
-  }); 
-   localStorage.setItem("data",JSON.stringify(data))
+  });
+  localStorage.setItem("data",JSON.stringify(data))
+console.log(data)
   createTasks();
 };
 
 //! Uploading the stored data on screen //
 let createTasks = () => {
-  tasks.innerHTML += `<div>
-<span class="fw-bold">${data.text}</span>
-<span class="small text-secondary">${data.date}</span>
-<p>${data.description}</p>
-<span class="options">
-  <i data-bs-toggle="modal" data-bs-target="#form" onclick ="editTask(this)" class="bi bi-pencil-square"></i>
-  <i onclick ="deleteTask(this)" class="bi bi-trash-fill"></i>
-</span>
-</div>`;
+//! solving repeating dublicate carts //
+  tasks.innerHTML=""
+    //!-----//
+  data.map((x,y)=>{
+    return tasks.innerHTML += `<div id=${y}>
+  <span class="fw-bold">${x.text}</span>
+  <span class="small text-secondary">${x.date}</span>
+  <p>${x.description}</p>
+  <span class="options">
+    <i data-bs-toggle="modal" data-bs-target="#form" onclick ="editTask(this)" class="bi bi-pencil-square"></i>
+    <i onclick ="deleteTask(this)" class="bi bi-trash-fill"></i>
+  </span>
+  </div>`})
+  ;
   resetForm();
 };
 
@@ -78,3 +85,8 @@ let editTask = (e) => {
   textarea.value = selectedTask.children[2].innerHTML;
   selectedTask.remove();
 };
+(()=>{
+  data= JSON.parse(localStorage.getItem("data"))
+  createTasks()
+ 
+})()
