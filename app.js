@@ -25,11 +25,11 @@ let formValidation = () => {
     //! Simulating button click because form is not went on first click it will went on 2nd click so we have to simulate the click//
     add.click();
     //! on clicking add button without giving date form gone without giving error so to resolve this issue we have to use IIFE function //
-    // (
-    //   () => {
-    //     add.setAttribute("data-bs-dismiss", "");
-    //   }
-    // )();
+    (
+      () => {
+        add.setAttribute("data-bs-dismiss", "");
+      }
+    )();
   }
 };
 
@@ -44,7 +44,7 @@ let acceptData = () => {
     description: textarea.value,
   });
   localStorage.setItem("data",JSON.stringify(data))
-console.log(data)
+
   createTasks();
 };
 
@@ -60,7 +60,7 @@ let createTasks = () => {
   <p>${x.description}</p>
   <span class="options">
     <i data-bs-toggle="modal" data-bs-target="#form" onclick ="editTask(this)" class="bi bi-pencil-square"></i>
-    <i onclick ="deleteTask(this)" class="bi bi-trash-fill"></i>
+    <i onclick ="deleteTask(this)"  class="bi bi-trash-fill"></i>
   </span>
   </div>`})
   ;
@@ -78,6 +78,9 @@ let deleteTask = (e) => {
   e.parentElement.parentElement.remove();
   //! Removing task form data //
   data.splice(e.parentElement.parentElement.id,1);
+  createTasks()
+  localStorage.setItem("data",JSON.stringify(data))
+
 };
 
 let editTask = (e) => {
@@ -85,10 +88,10 @@ let editTask = (e) => {
   textInput.value = selectedTask.children[0].innerHTML;
   textDate.value = selectedTask.children[1].innerHTML;
   textarea.value = selectedTask.children[2].innerHTML;
-  selectedTask.remove();
+  deleteTask(e)
 };
 (()=>{
-  data= JSON.parse(localStorage.getItem("data"))
+  data= JSON.parse(localStorage.getItem("data")) || []
   createTasks()
  
 })()
