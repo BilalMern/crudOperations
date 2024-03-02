@@ -76,6 +76,8 @@ let resetForm = () => {
 
 let deleteTask = (e) => {
   e.parentElement.parentElement.remove();
+  //! Removing task form data //
+  data.splice(e.parentElement.parentElement.id,1);
 };
 
 let editTask = (e) => {
